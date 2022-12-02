@@ -1,0 +1,60 @@
+---
+layout: default
+title: Mock your OAuth2 login for easier performance and integration testing
+description: This is a ready-to-use OAuth mock. Performance and integration test your Google OAuth or any other OAuth2 implementation with minimal setup.
+keywords: oauth,oauth2,openid connect,google login,google oauth
+author_profile: false
+---
+
+<div id="main">
+  <div id="content" style="margin-top: 2em;">
+    <h1 class="page__title" style="text-align:center;">Mock your OAuth2 login for easier performance and integration testing</h1>
+
+    <div style="display:flex;margin-bottom:2em;margin-top:2em;justify-content:center">
+      <img src="/images/oauth-2-logo.png" alt="OAuth2" style="border:none;margin-right:10px;height:90px;width:92px"/>
+      <img src="/images/openid-icon-100x100.png" alt="OpenID Connect" style="border:none;margin-left:10px;height:90px"/>
+    </div>
+
+    <p>
+      If you're building web apps or microservices there's a good chance you support sign-ins from a cloud provider like <strong>Google</strong>, or
+      an identity product like <strong>Auth0</strong> or <strong>Okta</strong>.
+    </p>
+
+    <p>
+      You've probably also experienced the testing headaches that can come
+      with relying on a third party for login services, such as:
+
+      <ul>
+        <li>Lack of <strong>test environments</strong> or developer sandboxes.</li>
+        <li><strong>Performance testing</strong> not possible or not permitted - rate limiting, DDoS protection and lawyers letters!</li>
+        <li>Creating large numbers of <strong>user accounts</strong>.</li>
+        <li>Difficulty testing <strong>failure modes</strong>.</li>
+      </ul>
+    </p>
+
+    <p>
+      The MockLab OAuth2 mock provides a <strong>drop-in replacement</strong> for
+      compatible login services including Google OAuth, Auth0 and many others. There's no signup
+      required and it accepts any email address and password (real or not) so there's <strong>no need to create test accounts</strong>.
+    </p>
+
+    <div id="ctas" style="display:flex;flex-direction:column;">
+      <a id="learn-cta" class="btn btn--large" style="margin:auto;width:300px;" href="/docs/oauth2-mock/" title="OAuth2 mock article">Learn how use with your app</a>
+
+      <p style="text-align:center;">
+        Or try <a id="demo-cta" href="https://mocklab-demo.herokuapp.com/login" title="Demo" target="_blank">the demo</a>.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $("#learn-cta").click(function() {
+    ga('send', 'event', 'oauth2_mock_landing_page', 'learn_cta_clicked', 'Learn CTA clicked', 1);
+  });
+
+  $("#demo-cta").click(function() {
+    ga('send', 'event', 'oauth2_mock_landing_page', 'demo_cta_clicked', 'Demo CTA clicked', 1);
+  });
+</script>
