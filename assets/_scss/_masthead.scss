@@ -1,0 +1,62 @@
+/* ==========================================================================
+   MASTHEAD
+   ========================================================================== */
+
+
+.masthead {
+  background-color: $c-masthead-bg;
+  border-bottom: solid 1px $c-masthead-border;
+  position: relative;
+  animation: intro 0.3s both;
+  animation-delay: 0.15s;
+  z-index: 20;
+
+  &__inner-wrap {
+    @include container;
+    @include clearfix;
+    //padding: 1em 1em 1em;
+    font-family: $sans-serif-narrow;
+
+    @include breakpoint($x-large) {
+      max-width: $x-large;
+    }
+
+    nav {
+      z-index: 10;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.masthead__menu {
+
+  ul {
+    margin: 0;
+    padding: 0 1rem;
+    clear: both;
+    list-style-type: none;
+  }
+}
+
+.masthead__menu-item {
+  display: block;
+  list-style-type: none;
+  white-space: nowrap;
+
+  &--lg {
+    font-family: "McLaren", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+    font-size: $type-size-4;
+    padding-right: 5em;
+    font-weight: 700;
+  }
+}
+
+.masthead__logo {
+  width: 30px;
+  height: auto;
+  margin-left: 2em;
+  margin-top: 0.4em;
+}
