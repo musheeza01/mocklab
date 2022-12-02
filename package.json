@@ -1,0 +1,46 @@
+{
+  "name": "mocklab",
+  "version": "0.0.1",
+  "description": "MockLab",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mocklab/mocklab-mothership.git"
+  },
+  "author": "Tom Akehurst",
+  "bugs": {
+    "url": "https://github.com/mocklab/mocklab-mothership/issues"
+  },
+  "homepage": "https://mocklab.io",
+  "engines": {
+    "node": ">= 5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.5",
+    "node-sass": "3.8.0",
+    "npm-run-all": "^1.7.0",
+    "onchange": "^2.2.0",
+    "postcss-cli": "^2.5.1",
+    "uglify-js": "^2.6.1",
+    "raml2html": "3.0.1"
+
+  },
+  "scripts": {
+    "scss": "node-sass --output-style compressed -o assets/css assets/_scss",
+    "autoprefixer": "postcss -u autoprefixer -b \">, 5%, ie 9\" -r assets/css/*",
+    "uglify": "uglifyjs assets/js/vendor/jquery/jquery-1.12.1.min.js assets/js/plugins/jquery.fitvids.js assets/js/plugins/jquery.greedy-navigation.js assets/js/plugins/jquery.magnific-popup.js assets/js/plugins/jquery.smooth-scroll.min.js assets/js/plugins/jquery-ui.min.js assets/js/plugins/stickyfill.min.js assets/js/_main.js -c -m -o assets/js/main.min.js",
+    "watch:css": "onchange \"assets/_scss/**/*.scss\" -- npm run build:css",
+    "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
+    "watch:all": "npm-run-all --parallel watch:css watch:js",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:js": "npm run uglify",
+    "build:all": "npm run build:css && npm run build:js",
+    "raml": "node_modules/raml2html/bin/raml2html --template templates/template.nunjucks -i assets/raml/mocklab-api.raml -o _docs/provisioning-api.html && node_modules/raml2html/bin/raml2html --template templates/template.nunjucks -i assets/raml/wiremock-admin-api.raml -o _docs/mocking-api.html",
+    "docs": "bundle exec jekyll build && cp -rf _site/* ../mocklab-docs/",
+    "serve": "bundle exec jekyll serve",
+    "start": "http-server"
+  },
+  "dependencies": {
+    "autocomplete.js": "^0.29.0",
+    "instantsearch.js": "^2.3.0"
+  }
+}
